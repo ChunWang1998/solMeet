@@ -1,0 +1,13 @@
+/Users/leo/Desktop/example-helloworld/src/program-rust/target/debug/deps/sha2-734ea7bd89ea67cb.rmeta: /Users/leo/.cargo/registry/src/github.com-1ecc6299db9ec823/sha2-0.10.2/src/lib.rs /Users/leo/.cargo/registry/src/github.com-1ecc6299db9ec823/sha2-0.10.2/src/core_api.rs /Users/leo/.cargo/registry/src/github.com-1ecc6299db9ec823/sha2-0.10.2/src/sha256.rs /Users/leo/.cargo/registry/src/github.com-1ecc6299db9ec823/sha2-0.10.2/src/sha512.rs /Users/leo/.cargo/registry/src/github.com-1ecc6299db9ec823/sha2-0.10.2/src/consts.rs /Users/leo/.cargo/registry/src/github.com-1ecc6299db9ec823/sha2-0.10.2/src/sha256/soft.rs /Users/leo/.cargo/registry/src/github.com-1ecc6299db9ec823/sha2-0.10.2/src/sha512/soft.rs
+
+/Users/leo/Desktop/example-helloworld/src/program-rust/target/debug/deps/libsha2-734ea7bd89ea67cb.rlib: /Users/leo/.cargo/registry/src/github.com-1ecc6299db9ec823/sha2-0.10.2/src/lib.rs /Users/leo/.cargo/registry/src/github.com-1ecc6299db9ec823/sha2-0.10.2/src/core_api.rs /Users/leo/.cargo/registry/src/github.com-1ecc6299db9ec823/sha2-0.10.2/src/sha256.rs /Users/leo/.cargo/registry/src/github.com-1ecc6299db9ec823/sha2-0.10.2/src/sha512.rs /Users/leo/.cargo/registry/src/github.com-1ecc6299db9ec823/sha2-0.10.2/src/consts.rs /Users/leo/.cargo/registry/src/github.com-1ecc6299db9ec823/sha2-0.10.2/src/sha256/soft.rs /Users/leo/.cargo/registry/src/github.com-1ecc6299db9ec823/sha2-0.10.2/src/sha512/soft.rs
+
+/Users/leo/Desktop/example-helloworld/src/program-rust/target/debug/deps/sha2-734ea7bd89ea67cb.d: /Users/leo/.cargo/registry/src/github.com-1ecc6299db9ec823/sha2-0.10.2/src/lib.rs /Users/leo/.cargo/registry/src/github.com-1ecc6299db9ec823/sha2-0.10.2/src/core_api.rs /Users/leo/.cargo/registry/src/github.com-1ecc6299db9ec823/sha2-0.10.2/src/sha256.rs /Users/leo/.cargo/registry/src/github.com-1ecc6299db9ec823/sha2-0.10.2/src/sha512.rs /Users/leo/.cargo/registry/src/github.com-1ecc6299db9ec823/sha2-0.10.2/src/consts.rs /Users/leo/.cargo/registry/src/github.com-1ecc6299db9ec823/sha2-0.10.2/src/sha256/soft.rs /Users/leo/.cargo/registry/src/github.com-1ecc6299db9ec823/sha2-0.10.2/src/sha512/soft.rs
+
+/Users/leo/.cargo/registry/src/github.com-1ecc6299db9ec823/sha2-0.10.2/src/lib.rs:
+/Users/leo/.cargo/registry/src/github.com-1ecc6299db9ec823/sha2-0.10.2/src/core_api.rs:
+/Users/leo/.cargo/registry/src/github.com-1ecc6299db9ec823/sha2-0.10.2/src/sha256.rs:
+/Users/leo/.cargo/registry/src/github.com-1ecc6299db9ec823/sha2-0.10.2/src/sha512.rs:
+/Users/leo/.cargo/registry/src/github.com-1ecc6299db9ec823/sha2-0.10.2/src/consts.rs:
+/Users/leo/.cargo/registry/src/github.com-1ecc6299db9ec823/sha2-0.10.2/src/sha256/soft.rs:
+/Users/leo/.cargo/registry/src/github.com-1ecc6299db9ec823/sha2-0.10.2/src/sha512/soft.rs:

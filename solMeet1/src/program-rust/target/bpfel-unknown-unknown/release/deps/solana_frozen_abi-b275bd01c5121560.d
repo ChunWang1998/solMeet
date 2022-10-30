@@ -1,0 +1,10 @@
+/Users/leo/Desktop/example-helloworld/src/program-rust/target/bpfel-unknown-unknown/release/deps/solana_frozen_abi-b275bd01c5121560.rmeta: /Users/leo/.cargo/registry/src/github.com-1ecc6299db9ec823/solana-frozen-abi-1.10.35/src/lib.rs /Users/leo/.cargo/registry/src/github.com-1ecc6299db9ec823/solana-frozen-abi-1.10.35/src/abi_digester.rs /Users/leo/.cargo/registry/src/github.com-1ecc6299db9ec823/solana-frozen-abi-1.10.35/src/abi_example.rs /Users/leo/.cargo/registry/src/github.com-1ecc6299db9ec823/solana-frozen-abi-1.10.35/src/hash.rs
+
+/Users/leo/Desktop/example-helloworld/src/program-rust/target/bpfel-unknown-unknown/release/deps/libsolana_frozen_abi-b275bd01c5121560.rlib: /Users/leo/.cargo/registry/src/github.com-1ecc6299db9ec823/solana-frozen-abi-1.10.35/src/lib.rs /Users/leo/.cargo/registry/src/github.com-1ecc6299db9ec823/solana-frozen-abi-1.10.35/src/abi_digester.rs /Users/leo/.cargo/registry/src/github.com-1ecc6299db9ec823/solana-frozen-abi-1.10.35/src/abi_example.rs /Users/leo/.cargo/registry/src/github.com-1ecc6299db9ec823/solana-frozen-abi-1.10.35/src/hash.rs
+
+/Users/leo/Desktop/example-helloworld/src/program-rust/target/bpfel-unknown-unknown/release/deps/solana_frozen_abi-b275bd01c5121560.d: /Users/leo/.cargo/registry/src/github.com-1ecc6299db9ec823/solana-frozen-abi-1.10.35/src/lib.rs /Users/leo/.cargo/registry/src/github.com-1ecc6299db9ec823/solana-frozen-abi-1.10.35/src/abi_digester.rs /Users/leo/.cargo/registry/src/github.com-1ecc6299db9ec823/solana-frozen-abi-1.10.35/src/abi_example.rs /Users/leo/.cargo/registry/src/github.com-1ecc6299db9ec823/solana-frozen-abi-1.10.35/src/hash.rs
+
+/Users/leo/.cargo/registry/src/github.com-1ecc6299db9ec823/solana-frozen-abi-1.10.35/src/lib.rs:
+/Users/leo/.cargo/registry/src/github.com-1ecc6299db9ec823/solana-frozen-abi-1.10.35/src/abi_digester.rs:
+/Users/leo/.cargo/registry/src/github.com-1ecc6299db9ec823/solana-frozen-abi-1.10.35/src/abi_example.rs:
+/Users/leo/.cargo/registry/src/github.com-1ecc6299db9ec823/solana-frozen-abi-1.10.35/src/hash.rs:
