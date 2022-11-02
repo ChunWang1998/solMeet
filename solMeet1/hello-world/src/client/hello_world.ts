@@ -88,7 +88,12 @@ const GREETING_SIZE = borsh.serialize(
  */
 export async function establishConnection(): Promise<void> {
   const rpcUrl = await getRpcUrl();
-  connection = new Connection(rpcUrl, 'confirmed');//!!
+  connection = new Connection(rpcUrl, 'confirmed');
+  //*--------------------------------------------
+  // finalized is lowest but most safe, and processed is fastest(會被cluster 跳過)
+  // 如果用processed , 會被cluster 跳過
+  // https://docs.solana.com/developing/clients/jsonrpc-api#configuring-state-commitment
+  //*--------------------------------------------
   const version = await connection.getVersion();
   console.log('Connection to cluster established:', rpcUrl, version);
 }
@@ -106,7 +111,9 @@ export async function establishPayer(): Promise<void> {
 
     // Calculate the cost of sending transactions
     fees += feeCalculator.lamportsPerSignature * 100; // wag
-
+    //*--------------------------------------------
+    // 能送100次(自定義)tx, 若超過會不夠費用
+    //*--------------------------------------------
     payer = await getPayer();
   }
 
@@ -181,6 +188,9 @@ export async function checkProgram(): Promise<void> {
     );
 
     const transaction = new Transaction().add(
+      //*--------------------------------------------
+      //initialize greetedPubkey
+      //*--------------------------------------------
       SystemProgram.createAccountWithSeed({
         fromPubkey: payer.publicKey,
         basePubkey: payer.publicKey,
