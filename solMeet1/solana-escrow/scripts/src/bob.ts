@@ -53,6 +53,7 @@ const bob = async () => {
     expectedAmount: new BN(decodedEscrowLayout.expectedAmount, 10, "le"),
   };
 
+  //!!! vs escrowStateAccountPubkey?
   const PDA = await PublicKey.findProgramAddress(
     [Buffer.from("escrow")],
     escrowProgramId
@@ -60,7 +61,7 @@ const bob = async () => {
 
   const exchangeInstruction = new TransactionInstruction({
     programId: escrowProgramId,
-    data: Buffer.from(
+    data: Buffer.from(//!!!
       Uint8Array.of(1, ...new BN(terms.bobExpectedAmount).toArray("le", 8))
     ),
     keys: [
@@ -97,7 +98,7 @@ const bob = async () => {
   console.log("Sending Bob's transaction...");
   await connection.sendTransaction(
     new Transaction().add(exchangeInstruction),
-    [bobKeypair],
+    [bobKeypair],//!!! only need it?
     { skipPreflight: false, preflightCommitment: "confirmed" }
   );
 
@@ -105,7 +106,7 @@ const bob = async () => {
   await new Promise((resolve) => setTimeout(resolve, 1000));
 
   if ((await connection.getAccountInfo(escrowStateAccountPubkey)) !== null) {
-    logError("Escrow account has not been closed");
+    logError("Escrow account has not been closed");//!!! where close?
     process.exit(1);
   }
 
@@ -124,8 +125,7 @@ const bob = async () => {
 
   if (newAliceYbalance !== aliceYbalance + terms.aliceExpectedAmount) {
     logError(
-      `Alice's Y balance should be ${
-        aliceYbalance + terms.aliceExpectedAmount
+      `Alice's Y balance should be ${aliceYbalance + terms.aliceExpectedAmount
       } but is ${newAliceYbalance}`
     );
     process.exit(1);
@@ -138,8 +138,7 @@ const bob = async () => {
 
   if (newBobXbalance !== bobXbalance + terms.bobExpectedAmount) {
     logError(
-      `Bob's X balance should be ${
-        bobXbalance + terms.bobExpectedAmount
+      `Bob's X balance should be ${bobXbalance + terms.bobExpectedAmount
       } but is ${newBobXbalance}`
     );
     process.exit(1);

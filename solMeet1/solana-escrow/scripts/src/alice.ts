@@ -34,7 +34,7 @@ const alice = async () => {
   const connection = new Connection("http://localhost:8899", "confirmed");
   const createTempTokenAccountIx = SystemProgram.createAccount({
     programId: TOKEN_PROGRAM_ID,
-    space: AccountLayout.span,
+    space: AccountLayout.span,//can cal data size automatically which is serialized 
     lamports: await connection.getMinimumBalanceForRentExemption(
       AccountLayout.span
     ),
@@ -47,17 +47,20 @@ const alice = async () => {
     tempXTokenAccountKeypair.publicKey,
     aliceKeypair.publicKey
   );
+  //*---------------------------------------------------
+  //transfer from aliceXTokenAccountPubkey to tempXTokenAccountKeypair
+  //*---------------------------------------------------
   const transferXTokensToTempAccIx = Token.createTransferInstruction(
     TOKEN_PROGRAM_ID,
     aliceXTokenAccountPubkey,
     tempXTokenAccountKeypair.publicKey,
     aliceKeypair.publicKey,
     [],
-    terms.bobExpectedAmount
+    terms.bobExpectedAmount//5
   );
   const escrowKeypair = new Keypair();
   const createEscrowAccountIx = SystemProgram.createAccount({
-    space: ESCROW_ACCOUNT_DATA_LAYOUT.span,
+    space: ESCROW_ACCOUNT_DATA_LAYOUT.span,//AccountLayout.span??? =>maybe size is not suitable
     lamports: await connection.getMinimumBalanceForRentExemption(
       ESCROW_ACCOUNT_DATA_LAYOUT.span
     ),
@@ -66,6 +69,7 @@ const alice = async () => {
     programId: escrowProgramId,
   });
   const initEscrowIx = new TransactionInstruction({
+    //refer: EscrowInstruction
     programId: escrowProgramId,
     keys: [
       { pubkey: aliceKeypair.publicKey, isSigner: true, isWritable: false },
@@ -83,7 +87,7 @@ const alice = async () => {
       { pubkey: SYSVAR_RENT_PUBKEY, isSigner: false, isWritable: false },
       { pubkey: TOKEN_PROGRAM_ID, isSigner: false, isWritable: false },
     ],
-    data: Buffer.from(
+    data: Buffer.from(//???
       Uint8Array.of(0, ...new BN(terms.aliceExpectedAmount).toArray("le", 8))
     ),
   });
@@ -98,8 +102,9 @@ const alice = async () => {
   console.log("Sending Alice's transaction...");
   await connection.sendTransaction(
     tx,
+    //when the system program creates a new account, the tx needs to be signed by that account
     [aliceKeypair, tempXTokenAccountKeypair, escrowKeypair],
-    { skipPreflight: false, preflightCommitment: "confirmed" }
+    { skipPreflight: false, preflightCommitment: "confirmed" }//skip deploy(simulate(run on local)) time 
   );
 
   // sleep to allow time to update
@@ -113,7 +118,7 @@ const alice = async () => {
     logError("Escrow state account has not been initialized properly");
     process.exit(1);
   }
-
+  //1116
   const encodedEscrowState = escrowAccount.data;
   const decodedEscrowState = ESCROW_ACCOUNT_DATA_LAYOUT.decode(
     encodedEscrowState

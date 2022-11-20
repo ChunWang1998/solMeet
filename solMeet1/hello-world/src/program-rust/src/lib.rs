@@ -16,7 +16,8 @@ pub struct GreetingAccount {
 }
 
 // Declare and export the program's entrypoint
-entrypoint!(process_instruction);
+// after data serialize, use entrypoint to deserialize in program, then be checked by processor
+entrypoint!(process_instruction); //(deserialize the input argument)
 
 // Program entrypoint's implementation
 pub fn process_instruction(
@@ -31,6 +32,8 @@ pub fn process_instruction(
 
     // Get the account to say hello to
     let account = next_account_info(accounts_iter)?;
+    // other get account way???
+    // how to know the order of accounts => (order like EscrowInstruction)
 
     // The account must be owned by the program in order to modify its data
     if account.owner != program_id {
@@ -39,9 +42,10 @@ pub fn process_instruction(
     }
 
     // Increment and store the number of times the account has been greeted
-    let mut greeting_account = GreetingAccount::try_from_slice(&account.data.borrow())?;
-    greeting_account.counter += 1;
-    greeting_account.serialize(&mut &mut account.data.borrow_mut()[..])?;
+    let mut greeting_account = GreetingAccount::try_from_slice(&account.data.borrow())?; //account.data get the data which is serialize, and use try_from_slice to deserialize
+    greeting_account.counter += 1; //start counter value is 0???
+    greeting_account.serialize(&mut &mut account.data.borrow_mut()[..])?; //???
+                                                                          //GreetingAccount::serialize(&mut &mut account.data.borrow_mut()[..])?;
 
     msg!("Greeted {} time(s)!", greeting_account.counter);
 
