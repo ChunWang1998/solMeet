@@ -22,6 +22,7 @@ entrypoint!(process_instruction); //(deserialize the input argument)
 // Program entrypoint's implementation
 pub fn process_instruction(
     program_id: &Pubkey, // Public key of the account the hello world program was loaded into
+    //use pubkey in keys in client to get accounts. pubkey here like an index
     accounts: &[AccountInfo], // The account to say hello to
     _instruction_data: &[u8], // Ignored, all helloworld instructions are hellos
 ) -> ProgramResult {
@@ -44,8 +45,7 @@ pub fn process_instruction(
     // Increment and store the number of times the account has been greeted
     let mut greeting_account = GreetingAccount::try_from_slice(&account.data.borrow())?; //account.data get the data which is serialize, and use try_from_slice to deserialize
     greeting_account.counter += 1; //start counter value is 0???
-    greeting_account.serialize(&mut &mut account.data.borrow_mut()[..])?; //???
-                                                                          //GreetingAccount::serialize(&mut &mut account.data.borrow_mut()[..])?;
+    greeting_account.serialize(&mut &mut account.data.borrow_mut()[..])?;
 
     msg!("Greeted {} time(s)!", greeting_account.counter);
 

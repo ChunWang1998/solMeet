@@ -60,7 +60,7 @@ const alice = async () => {
   );
   const escrowKeypair = new Keypair();
   const createEscrowAccountIx = SystemProgram.createAccount({
-    space: ESCROW_ACCOUNT_DATA_LAYOUT.span,//AccountLayout.span??? =>maybe size is not suitable
+    space: ESCROW_ACCOUNT_DATA_LAYOUT.span,//AccountLayout.span =>maybe size is not suitable
     lamports: await connection.getMinimumBalanceForRentExemption(
       ESCROW_ACCOUNT_DATA_LAYOUT.span
     ),
@@ -87,8 +87,8 @@ const alice = async () => {
       { pubkey: SYSVAR_RENT_PUBKEY, isSigner: false, isWritable: false },
       { pubkey: TOKEN_PROGRAM_ID, isSigner: false, isWritable: false },
     ],
-    data: Buffer.from(//???
-      Uint8Array.of(0, ...new BN(terms.aliceExpectedAmount).toArray("le", 8))
+    data: Buffer.from(
+      Uint8Array.of(0, ...new BN(terms.aliceExpectedAmount).toArray("le", 8)) //correspond to amount in InitEscrow in lib.rs
     ),
   });
 
